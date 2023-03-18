@@ -10,6 +10,21 @@ Globals:
   Function:
     Timeout: 30
 
+Parameters:
+    Uri: # Changed this to remove underscore
+        Description: 'Required. Service URL.'
+        Type: 'String'
+    Username: # Changed this to remove underscore
+        Description: 'Your username for this service.'
+        Type: 'String'
+    Password: # Changed this to remove underscore
+        Description: 'Your password.'
+        Type: 'String'
+    TZOffset:
+        Description: 'Timezone Offset (e.g. -8, +2, 0).'
+        Type: 'String'
+        Default: '+8'
+
 Resources:
   PlaylistFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -17,6 +32,12 @@ Resources:
       CodeUri: playlist/
       Handler: app.lambdaHandler
       Runtime: nodejs18.x
+      Environment:
+        Variables:
+            M3U4ME_URI: !Ref Uri
+            M3U4ME_USERNAME: !Ref Username
+            M3U4ME_PASSWORD: !Ref Password
+            M3U4ME_TZOFFSET: !Ref TZOffset
       Architectures:
         - x86_64
       Events:

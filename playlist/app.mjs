@@ -13,9 +13,10 @@
 
 // update these
 
-const uri = ''
-const username = ''
-const password = ''
+const uri = process.env.M3U4ME_URI
+const username = process.env.M3U4ME_USERNAME
+const password = process.env.M3U4ME_PASSWORD
+const tzoffset = process.env.M3U4ME_TZOFFSET
 
 const main = async () => {
 
@@ -44,7 +45,7 @@ const main = async () => {
     for (const category in groupedStreams) {
         for (const stream of groupedStreams[category]) {
             let thisCategory = liveCategoriesData.find(c => c.category_id == category)
-            m3uAsArray.push(`#EXTINF:-1 tvd-id="${stream.epg_channel_id ?? '(no tvg-id)'}" tvg-name="${stream.name}" tvg-logo="${stream.stream_icon}" group-title="${thisCategory.category_name}" tvg-shift="+8",${stream.name}`)
+            m3uAsArray.push(`#EXTINF:-1 tvd-id="${stream.epg_channel_id ?? '(no tvg-id)'}" tvg-name="${stream.name}" tvg-logo="${stream.stream_icon}" group-title="${thisCategory.category_name}" tvg-shift="${tzoffset}",${stream.name}`)
             m3uAsArray.push(`${uri}/live/${username}/${password}/${stream.stream_id}.m3u8`)
         }
     }
