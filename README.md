@@ -20,6 +20,19 @@ You will be prompted to enter your service details when running ```sam deploy --
 
 This was built as a proof of concept, but it works well enough to use with IPTVnator.
 
+Your personal URL will be output by ```sam deploy```:
+
+```terminal
+CloudFormation outputs from deployed stack
+------------------------------------------------------------------------------------
+Outputs                                                                                                                                 
+------------------------------------------------------------------------------------
+Key                 PlaylistUrl                                                                                                         
+Description         API Gateway endpoint URL for Prod stage for Playlist function                                                       
+Value               https://myurl.amazonaws.com/Prod/playlist/                                          
+------------------------------------------------------------------------------------
+```
+
 To do:
 * Remove parameters (uri, username, password) from code - DONE
 * Integrate EPG (add 'url-tvg' tag)
