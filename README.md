@@ -3,16 +3,20 @@
 This is an AWS Serverless project to convert xtream codes playlists to m3u.
 
 Preprequisites:
-* AWS account with an IAM user that has permissions to run ```sam deploy```.
+* AWS SAM cli installed
+* AWS account with an IAM user that has permissions to run ```sam deploy```
+* AWS credentials stored in profile ```m3u4me```
 
 To deploy:
 
 ```bash
+git clone https://github.com/m3u4me/m3u4me.git
+cd m3u4me
 sam build
-sam deploy --guided
+sam deploy --guided --profile m3u4me
 ```
 
-You will be prompted to enter your service details when running ```sam deploy --guided```.
+You will be prompted to enter your service details when running ```sam deploy --guided```, and you will be provided with your playlist URL.
 
 This was built as a proof of concept, but it works well enough to use with IPTVnator.
 

@@ -51,12 +51,12 @@ Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
   # Find out more about other implicit resources you can reference within SAM
   # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
-  HelloWorldApi:
-    Description: "API Gateway endpoint URL for Prod stage for Hello World function"
+  PlaylistApi:
+    Description: "API Gateway endpoint URL for Prod stage for Playlist function"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/playlist/"
-  HelloWorldFunction:
-    Description: "Hello World Lambda Function ARN"
+  PlaylistFunction:
+    Description: "Playlist Lambda Function ARN"
     Value: !GetAtt PlaylistFunction.Arn
-  HelloWorldFunctionIamRole:
-    Description: "Implicit IAM Role created for Hello World function"
+  PlaylistFunctionIamRole:
+    Description: "Implicit IAM Role created for Playlist function"
     Value: !GetAtt PlaylistFunction.Arn
