@@ -25,11 +25,11 @@ Your personal URL will be output by ```sam deploy```:
 ```terminal
 CloudFormation outputs from deployed stack
 ------------------------------------------------------------------------------------
-Outputs                                                                                                                                 
+Outputs
 ------------------------------------------------------------------------------------
-Key                 PlaylistUrl                                                                                                         
-Description         API Gateway endpoint URL for Prod stage for Playlist function                                                       
-Value               https://myurl.amazonaws.com/Prod/playlist/                                          
+Key                 PlaylistUrl
+Description         API Gateway endpoint URL for Prod stage for Playlist function
+Value               https://myurl.amazonaws.com/Prod/playlist/
 ------------------------------------------------------------------------------------
 ```
 
